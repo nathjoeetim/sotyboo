@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/sportboo_user.dart';
+import '../../models/sportboo_user/sportboo_user.dart';
 
 class SportbooUserProvider extends ChangeNotifier {
 

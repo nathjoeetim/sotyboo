@@ -39,7 +39,7 @@ class ProvidersList {
         // ChangeNotifierProvider(create: (_) => AuthProvider()),
         // ChangeNotifierProvider(create: (_) => HomeProvider()),
 
-        // ChangeNotifierProvider(create: (_) => sportboo_mobile_clientUserProvider()),
+        ChangeNotifierProvider(create: (_) => SportbooUserProvider()),
         // ChangeNotifierProvider(create: (_) => CreateOddsProvider()),
         // ChangeNotifierProvider(create: (_) => BetSlipProvider()),
 

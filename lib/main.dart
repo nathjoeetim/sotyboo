@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'core/home/home_page.dart';
 import 'core/providers/providers_list.dart';
 import 'core/theme/theme.dart';
+import 'modules/authentication/login/login_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
             builder: FlutterSmartDialog.init(),
           );
         },
-        child: const HomePage(),
+        child: const LoginView(),
       ),
     );
   }

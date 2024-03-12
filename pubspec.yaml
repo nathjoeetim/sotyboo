@@ -45,6 +45,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.8
 
 flutter:
   uses-material-design: true
@@ -53,17 +55,17 @@ flutter:
    - assets/
    - assets/images/
    - assets/svgs/
-   - assets/svgs/livescore/
-   - assets/svgs/wallet/
-   - assets/svgs/p2p/
-   - assets/svgs/profile/
-   - assets/svgs/auth/
+#   - assets/svgs/livescore/
+#   - assets/svgs/wallet/
+#   - assets/svgs/p2p/
+#   - assets/svgs/profile/
+#   - assets/svgs/auth/
    - assets/pngs/
-   - assets/pngs/livescore/
-   - assets/pngs/wallet/
-   - assets/pngs/p2p/
-   - assets/pngs/profile/
-   - assets/pngs/auth/
+#   - assets/pngs/livescore/
+#   - assets/pngs/wallet/
+#   - assets/pngs/p2p/
+#   - assets/pngs/profile/
+#   - assets/pngs/auth/
 
   fonts:
     - family: inter

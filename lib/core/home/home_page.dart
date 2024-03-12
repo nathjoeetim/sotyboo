@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:sportboo_mobile_client/core/home/sportboo_user_provider.dart';
 import 'package:sportboo_mobile_client/core/home/tab_navigator.dart';
 
 import '../theme/colors.dart';
