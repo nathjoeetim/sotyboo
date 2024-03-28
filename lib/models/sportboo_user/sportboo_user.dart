@@ -11,8 +11,6 @@ class SportbooUser {
   final String sportbooId;
   final String? phone;
   final String? profileImgUrl;
-  final double walletBalance;
-  final int sportbooToken;
   final String accessToken;
   final String refreshToken;
   final String? deviceId;
@@ -35,8 +33,6 @@ class SportbooUser {
       required this.sportbooId,
       required this.phone,
       required this.profileImgUrl,
-      required this.walletBalance,
-      required this.sportbooToken,
       required this.accessToken,
       required this.refreshToken,
       required this.deviceId,
@@ -62,12 +58,12 @@ class SportbooUser {
 
 @JsonSerializable()
 class ResidentialAddress {
-  final int id;
-  final String address;
-  final String city;
-  final String state;
-  final String country;
-  final String postCode;
+  final int? id;
+  final String? address;
+  final String? city;
+  final String? state;
+  final String? country;
+  final String? postCode;
 
   ResidentialAddress(
       {required this.id,
@@ -88,11 +84,11 @@ class ResidentialAddress {
 
 @JsonSerializable()
 class Preferences {
-  final int id;
-  final String language;
-  final String timeZone;
-  final String oddsDisplay;
-  final String maximumInactivePeriod;
+  final int? id;
+  final String? language;
+  final String? timeZone;
+  final String? oddsDisplay;
+  final String? maximumInactivePeriod;
 
   Preferences(
       {required this.id,
@@ -112,10 +108,10 @@ class Preferences {
 
 @JsonSerializable()
 class ExternalCommunication {
-  final int id;
-  final bool pushNotifications;
-  final bool sms;
-  final bool emails;
+  final int? id;
+  final bool? pushNotifications;
+  final bool? sms;
+  final bool? emails;
 
   ExternalCommunication(
       {required this.id,
@@ -134,9 +130,9 @@ class ExternalCommunication {
 
 @JsonSerializable()
 class InAppCommunication {
-  final int id;
-  final bool messages;
-  final bool popUps;
+  final int? id;
+  final bool? messages;
+  final bool? popUps;
 
   InAppCommunication(
       {required this.id, required this.messages, required this.popUps});
@@ -152,11 +148,11 @@ class InAppCommunication {
 
 @JsonSerializable()
 class SecurityPreferences {
-  final int id;
-  final bool twoStepVerification;
-  final bool biometric;
-  final bool screenShots;
-  final bool disableAccount;
+  final int? id;
+  final bool? twoStepVerification;
+  final bool? biometric;
+  final bool? screenShots;
+  final bool? disableAccount;
 
   SecurityPreferences(
       {required this.id,
@@ -176,10 +172,10 @@ class SecurityPreferences {
 
 @JsonSerializable()
 class WalletActivities {
-  final int id;
-  final bool pushNotifications;
-  final bool sms;
-  final bool emails;
+  final int? id;
+  final bool? pushNotifications;
+  final bool? sms;
+  final bool? emails;
 
   WalletActivities(
       {required this.id,
@@ -198,10 +194,10 @@ class WalletActivities {
 
 @JsonSerializable()
 class SecurityAlerts {
-  final int id;
-  final bool pushNotifications;
-  final bool sms;
-  final bool emails;
+  final int? id;
+  final bool? pushNotifications;
+  final bool? sms;
+  final bool? emails;
 
   SecurityAlerts(
       {required this.id,

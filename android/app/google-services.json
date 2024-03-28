@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "671180165653",
+    "project_id": "sportboo-325af",
+    "storage_bucket": "sportboo-325af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671180165653:android:e374a3145d88f17cc6741c",
+        "android_client_info": {
+          "package_name": "co.sportboo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671180165653-c9r8m2ghivik9gag2kj6odukdhbmif8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqcCZBrNEhLKAsLicN04bhYIiNHh_UyLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671180165653-c9r8m2ghivik9gag2kj6odukdhbmif8n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "671180165653-avi2fggisrms50tjhi3fbpem63u6r3im.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "sport.boo.binarybin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.example.sportboo_mobile_client
+package co.sportboo.app
 
 import io.flutter.embedding.android.FlutterActivity
 

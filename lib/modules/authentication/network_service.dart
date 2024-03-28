@@ -17,8 +17,7 @@ class AuthenticationService {
 
   Future<NetworkResponse<SportbooUser, ({String userId, String email})>>
       loginWithEmail({required String email, required String password}) async {
-    try {//users/auth/login/email
-
+    try {
       var response = await _dio.post('$baseUrl/users/auth/login/email',
           data: {'email': email, 'password': password});
 
@@ -28,9 +27,46 @@ class AuthenticationService {
           message: response.data?['message'],
           data: SportbooUser.fromJson(response.data['data']));
     } on DioException catch (e) {
-
       return NetworkResponse<SportbooUser,
-          ({String userId, String email})>.error(
+              ({String userId, String email})>.error(
+          statusCode: 500,
+          message: e.response?.data?['message'] ?? 'Network Error',
+          errorData: null);
+    } catch (e) {
+      return NetworkResponse<SportbooUser,
+              ({String userId, String email})>.error(
+          statusCode: 500,
+          message: 'Network Error: Please try again',
+          errorData: null);
+    }
+  }
+
+  Future<NetworkResponse<dynamic, dynamic>> saveDeviceToken(
+      String deviceId, String? authToken) async {
+    try {
+
+      var response = await _dio.patch(
+        '$baseUrl/profile/device-id',
+        data: {'deviceId': deviceId},
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $authToken',
+          },
+        ),
+      );
+
+      return NetworkResponse<dynamic, dynamic>.success(
+          statusCode: response.statusCode ?? 200,
+          message: response.data?['message'],
+          data: response.data?['data']);
+    } on DioException catch (e) {
+      return NetworkResponse<dynamic, dynamic>.error(
+          statusCode: 500,
+          message: 'Network Error: Please try again',
+          errorData: null);
+    } catch (e) {
+      return NetworkResponse<dynamic, dynamic>.error(
           statusCode: 500,
           message: 'Network Error: Please try again',
           errorData: null);

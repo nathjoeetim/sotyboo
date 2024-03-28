@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sportboo_mobile_client/core/home/sportboo_user_provider.dart';
 import 'package:sportboo_mobile_client/core/home/tab_navigator.dart';
 
+import '../providers/notification_provider.dart';
 import '../theme/colors.dart';
 
 
@@ -23,7 +24,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
 
-    // Provider.of<NotificationProvider>(context, listen: false).init();
+    var sportbooUser = Provider.of<SportbooUserProvider>(context, listen: false).sportbooUser;
+    Provider.of<NotificationProvider>(context, listen: false).setupToken(sportbooUser?.accessToken);
 
     super.initState();
   }

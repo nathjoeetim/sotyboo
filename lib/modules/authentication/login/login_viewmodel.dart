@@ -8,10 +8,10 @@ import '../../../components/base_viewmodel.dart';
 import '../../../core/home/home_page.dart';
 import '../../../core/home/sportboo_user_provider.dart';
 import '../../../models/network_response.dart';
-import '../../../models/sportboo_user/sportboo_user.dart';
 import '../network_service.dart';
 
 class LoginViewModel extends BaseViewModel {
+
   final AuthenticationService _authenticationService = AuthenticationService();
 
   final BuildContext context;
@@ -45,10 +45,10 @@ class LoginViewModel extends BaseViewModel {
           password: form.control('password').value);
 
       if (response.isError) {
-        // handle error
-        showSportbooSnackBar(response.message, (id) => () {});
         // stop loading bar
         closeSportbooLoader();
+        // handle error
+        showSportbooSnackBar(response.message, (id) => () {});
         return;
       }
 

@@ -30,6 +30,7 @@ import 'package:sportboo_mobile_client/modules/profile/sub_screens/settings/sub_
 
 import '../../modules/profile/sub_screens/notifications/viewmodels/notifications_viewmodel.dart';
 import '../home/sportboo_user_provider.dart';
+import 'notification_provider.dart';
 
 class ProvidersList {
   static List<SingleChildWidget> getProviders() => [
@@ -41,7 +42,7 @@ class ProvidersList {
 
         ChangeNotifierProvider(create: (_) => SportbooUserProvider()),
         // ChangeNotifierProvider(create: (_) => CreateOddsProvider()),
-        // ChangeNotifierProvider(create: (_) => BetSlipProvider()),
+        ChangeNotifierProvider(create: (_) => NotificationProvider()),
 
         /*
          Livescores tab

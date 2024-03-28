@@ -14,8 +14,6 @@ SportbooUser _$SportbooUserFromJson(Map<String, dynamic> json) => SportbooUser(
       sportbooId: json['sportbooId'] as String,
       phone: json['phone'] as String?,
       profileImgUrl: json['profileImgUrl'] as String?,
-      walletBalance: (json['walletBalance'] as num).toDouble(),
-      sportbooToken: json['sportbooToken'] as int,
       accessToken: json['accessToken'] as String,
       refreshToken: json['refreshToken'] as String,
       deviceId: json['deviceId'] as String?,
@@ -59,8 +57,6 @@ Map<String, dynamic> _$SportbooUserToJson(SportbooUser instance) =>
       'sportbooId': instance.sportbooId,
       'phone': instance.phone,
       'profileImgUrl': instance.profileImgUrl,
-      'walletBalance': instance.walletBalance,
-      'sportbooToken': instance.sportbooToken,
       'accessToken': instance.accessToken,
       'refreshToken': instance.refreshToken,
       'deviceId': instance.deviceId,
@@ -77,12 +73,12 @@ Map<String, dynamic> _$SportbooUserToJson(SportbooUser instance) =>
 
 ResidentialAddress _$ResidentialAddressFromJson(Map<String, dynamic> json) =>
     ResidentialAddress(
-      id: json['id'] as int,
-      address: json['address'] as String,
-      city: json['city'] as String,
-      state: json['state'] as String,
-      country: json['country'] as String,
-      postCode: json['postCode'] as String,
+      id: json['id'] as int?,
+      address: json['address'] as String?,
+      city: json['city'] as String?,
+      state: json['state'] as String?,
+      country: json['country'] as String?,
+      postCode: json['postCode'] as String?,
     );
 
 Map<String, dynamic> _$ResidentialAddressToJson(ResidentialAddress instance) =>
@@ -96,11 +92,11 @@ Map<String, dynamic> _$ResidentialAddressToJson(ResidentialAddress instance) =>
     };
 
 Preferences _$PreferencesFromJson(Map<String, dynamic> json) => Preferences(
-      id: json['id'] as int,
-      language: json['language'] as String,
-      timeZone: json['timeZone'] as String,
-      oddsDisplay: json['oddsDisplay'] as String,
-      maximumInactivePeriod: json['maximumInactivePeriod'] as String,
+      id: json['id'] as int?,
+      language: json['language'] as String?,
+      timeZone: json['timeZone'] as String?,
+      oddsDisplay: json['oddsDisplay'] as String?,
+      maximumInactivePeriod: json['maximumInactivePeriod'] as String?,
     );
 
 Map<String, dynamic> _$PreferencesToJson(Preferences instance) =>
@@ -115,10 +111,10 @@ Map<String, dynamic> _$PreferencesToJson(Preferences instance) =>
 ExternalCommunication _$ExternalCommunicationFromJson(
         Map<String, dynamic> json) =>
     ExternalCommunication(
-      id: json['id'] as int,
-      pushNotifications: json['pushNotifications'] as bool,
-      sms: json['sms'] as bool,
-      emails: json['emails'] as bool,
+      id: json['id'] as int?,
+      pushNotifications: json['pushNotifications'] as bool?,
+      sms: json['sms'] as bool?,
+      emails: json['emails'] as bool?,
     );
 
 Map<String, dynamic> _$ExternalCommunicationToJson(
@@ -132,9 +128,9 @@ Map<String, dynamic> _$ExternalCommunicationToJson(
 
 InAppCommunication _$InAppCommunicationFromJson(Map<String, dynamic> json) =>
     InAppCommunication(
-      id: json['id'] as int,
-      messages: json['messages'] as bool,
-      popUps: json['popUps'] as bool,
+      id: json['id'] as int?,
+      messages: json['messages'] as bool?,
+      popUps: json['popUps'] as bool?,
     );
 
 Map<String, dynamic> _$InAppCommunicationToJson(InAppCommunication instance) =>
@@ -146,11 +142,11 @@ Map<String, dynamic> _$InAppCommunicationToJson(InAppCommunication instance) =>
 
 SecurityPreferences _$SecurityPreferencesFromJson(Map<String, dynamic> json) =>
     SecurityPreferences(
-      id: json['id'] as int,
-      twoStepVerification: json['twoStepVerification'] as bool,
-      biometric: json['biometric'] as bool,
-      screenShots: json['screenShots'] as bool,
-      disableAccount: json['disableAccount'] as bool,
+      id: json['id'] as int?,
+      twoStepVerification: json['twoStepVerification'] as bool?,
+      biometric: json['biometric'] as bool?,
+      screenShots: json['screenShots'] as bool?,
+      disableAccount: json['disableAccount'] as bool?,
     );
 
 Map<String, dynamic> _$SecurityPreferencesToJson(
@@ -165,10 +161,10 @@ Map<String, dynamic> _$SecurityPreferencesToJson(
 
 WalletActivities _$WalletActivitiesFromJson(Map<String, dynamic> json) =>
     WalletActivities(
-      id: json['id'] as int,
-      pushNotifications: json['pushNotifications'] as bool,
-      sms: json['sms'] as bool,
-      emails: json['emails'] as bool,
+      id: json['id'] as int?,
+      pushNotifications: json['pushNotifications'] as bool?,
+      sms: json['sms'] as bool?,
+      emails: json['emails'] as bool?,
     );
 
 Map<String, dynamic> _$WalletActivitiesToJson(WalletActivities instance) =>
@@ -181,10 +177,10 @@ Map<String, dynamic> _$WalletActivitiesToJson(WalletActivities instance) =>
 
 SecurityAlerts _$SecurityAlertsFromJson(Map<String, dynamic> json) =>
     SecurityAlerts(
-      id: json['id'] as int,
-      pushNotifications: json['pushNotifications'] as bool,
-      sms: json['sms'] as bool,
-      emails: json['emails'] as bool,
+      id: json['id'] as int?,
+      pushNotifications: json['pushNotifications'] as bool?,
+      sms: json['sms'] as bool?,
+      emails: json['emails'] as bool?,
     );
 
 Map<String, dynamic> _$SecurityAlertsToJson(SecurityAlerts instance) =>
