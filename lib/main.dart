@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: false,
         builder: (context, child) {
           return GetMaterialApp(
-            debugShowCheckedModeBanner: false,
+            debugShowCheckedModeBanner: true,
             title: 'SportBoo',
             theme: appLightTheme,
             home: child,

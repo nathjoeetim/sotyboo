@@ -43,9 +43,9 @@ class MessageDetailsScreen extends HookWidget {
                 .deleteChat(chat);
           },
         ),
-        child: Column(
+        child:const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children:  [
             Expanded(
               child: ChatWidget(),
             ),

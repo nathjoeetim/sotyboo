@@ -1,1 +1,2 @@
 const String baseUrl = 'https://sportboo-server.onrender.com/api/v1';
+const String authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsidXNlciJdLCJ0b2tlblR5cGUiOiJBQ0NFU1NfVE9LRU4iLCJpYXQiOjE3MTIzMTU2MTEsImV4cCI6MTcxMjQ4ODQxMX0.9UlXMjdSauxSCGrDjJhiATK6aFeF7HqGVMXShA9zfRg';

@@ -148,9 +148,9 @@ class LoginView extends StatelessWidget {
                       Gap(32.h),
                       Center(
                         child: RichText(
-                          text: TextSpan(
+                          text:const TextSpan(
                             children: [
-                              const TextSpan(
+                               TextSpan(
                                   text: 'Don’t have an account? ',
                                   style: TextStyle(
                                       fontFamily: 'Inter',
@@ -159,7 +159,7 @@ class LoginView extends StatelessWidget {
                                       color: AppColors.tertiary9)),
                               TextSpan(
                                 text: 'Sign up',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     fontFamily: 'Inter',
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16,

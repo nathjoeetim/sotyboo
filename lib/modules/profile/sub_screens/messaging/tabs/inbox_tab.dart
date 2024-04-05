@@ -27,7 +27,6 @@ class InboxTab extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final chat = model.chats[index];
                     final isSelected = model.selectedChats.contains(chat);
-
                     return ChatTile(
                       chat: model.chats[index],
                       isSelected: isSelected,
