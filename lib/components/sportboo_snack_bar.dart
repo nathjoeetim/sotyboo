@@ -13,7 +13,7 @@ class SportbooSnackBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: EdgeInsets.fromLTRB(2, 2, 16, 2),
+    padding: const EdgeInsets.fromLTRB(2, 2, 16, 2),
     decoration: BoxDecoration(
       color: AppColors.primaryBase6,
       borderRadius: BorderRadius.circular(16)

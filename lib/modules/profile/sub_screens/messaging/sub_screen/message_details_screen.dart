@@ -74,7 +74,6 @@ class ChatWidget extends StatelessWidget {
           shrinkWrap: true,
           children: model.messages!.reversed.map<Widget>((item) {
             //log('${item.sender} =  ---->  ${item.message}');
-
             return MessageBubble(
               item: item,
             );
@@ -192,7 +191,6 @@ class MessageBar extends HookWidget {
                           if (value.isNotEmpty) {
                             // Process the submitted comment
                             log('Sending a message: $value');
-
                             model.sendMessage();
                             textEditingController.clear();
 

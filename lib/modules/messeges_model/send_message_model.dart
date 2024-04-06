@@ -112,7 +112,6 @@ Future<bool> onSendNewMessage(String title, String message) async {
     }
   } catch (e) {
     closeSportbooLoader();
-    // showSportbooSnackBar('$e', (id) => {});
     return false; // Message sending failed
   }
 }

@@ -137,7 +137,7 @@ void closeSportbooLoader() {
 void showSportbooSnackBar(
   String message,
   Function(String id) onView, {
-  Duration duration = const Duration(seconds: 4),
+  Duration duration = const Duration(seconds: 5),
 }) {
   SmartDialog.showNotify(
       alignment: Alignment.topCenter,

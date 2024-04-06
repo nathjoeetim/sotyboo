@@ -1,132 +1,51 @@
 import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
+import 'package:sportboo_mobile_client/core/providers/message_provider.dart';
 import 'package:sportboo_mobile_client/modules/profile/sub_screens/messaging/model/profile_chat_model.dart';
+import 'package:get/get.dart';
 
 class MessagingViewmodel extends ChangeNotifier {
-  final List<ProfileChatModel> _chats = [
-    ProfileChatModel(
-      isRead: false,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(sender: 'You', message: 'How are you', time: '1 hour'),
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\n\nTo deposit money follow the steps:\n',
-            time: '21 mins'),
-        Message(
-            sender: 'You',
-            message: 'Okay, thanks for the assist.',
-            time: '5 secs'),
-      ],
-    ),
-    ProfileChatModel(
-      isRead: false,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(sender: 'You', message: 'How are you', time: '1 hour'),
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\nTo deposit money follow the steps..',
-            time: '21 mins'),
-      ],
-    ),
-    ProfileChatModel(
-      isRead: true,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\nTo deposit money follow the steps..',
-            time: '21 mins'),
-      ],
-    ),
-    ProfileChatModel(
-      isRead: false,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(sender: 'You', message: 'How are you', time: '1 hour'),
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\n\nTo deposit money follow the steps:\n',
-            time: '21 mins'),
-        Message(
-            sender: 'You',
-            message: 'Okay, thanks for the assist.',
-            time: '5 secs'),
-      ],
-    ),
-    ProfileChatModel(
-      isRead: false,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(sender: 'You', message: 'How are you', time: '1 hour'),
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\nTo deposit money follow the steps..',
-            time: '21 mins'),
-      ],
-    ),
-    ProfileChatModel(
-      isRead: true,
-      title: 'How to Deposit money on SiuuSport',
-      messages: [
-        Message(
-            sender: 'SiuuSports',
-            message: 'Hey Jake,\nTo deposit money follow the steps..',
-            time: '21 mins'),
-      ],
-    ),
-  ];
+  AllChatProvider chat = Get.put(AllChatProvider());
 
-  bool _isSelectMode = false;
+
+  late List<ProfileChatModel> _chats;
+
+  MessagingViewmodel() {
+    initializeChats();
+  }
+
+  void initializeChats()  {
+    // chat = Get.put(AllChatProvider());
+    _chats = chat.getAllMessages;
+
+    notifyListeners();
+  }
 
   UnmodifiableListView<ProfileChatModel> get chats =>
       UnmodifiableListView(_chats);
-
-  List<ProfileChatModel> _selectedChats = [];
+  final List<ProfileChatModel> _selectedChats = [];
   UnmodifiableListView<ProfileChatModel> get selectedChats =>
       UnmodifiableListView(_selectedChats);
 
-  bool get isSelectMode {
-    if (_isSelectMode) {
-      return true;
-    } else if (_selectedChats.isNotEmpty) {
-      return true;
-    }
-    return false;
-  }
-
-  /*  UnmodifiableListView<ProfileMessageModel> getReadNotifications() {
-    final readNotifications =
-        _messages.where((notification) => notification.isRead!).toList();
-    return UnmodifiableListView(readNotifications);
-  }
-*/
-  int get newChatLength {
-    final newChat = _chats.where((chat) => !chat.isRead!).toList();
-    return newChat.length;
-  }
-
-  /* bool get hasUnreadMessages =>
-      _messages.any((message) => !message.isRead!);*/
-  set isSelectMode(value) {
+  bool _isSelectMode = false;
+  bool get isSelectMode => _isSelectMode;
+  set isSelectMode(bool value) {
     _isSelectMode = value;
     notifyListeners();
   }
 
-  markAsRead(ProfileChatModel chat) {
-    /* _notifications[index].isRead = true;
-    notifyListeners();*/
+  int get newChatLength =>
+      _chats.where((chat) => !chat.hasRead!).length;
 
+  void markAsRead(ProfileChatModel chat) {
     int index = _chats.indexOf(chat);
     if (index != -1) {
-      _chats[index].isRead = true;
+      _chats[index].hasRead = true;
       notifyListeners();
     }
   }
 
-  addMessageToChat(ProfileChatModel chat, Message message) {
+  void addMessageToChat(ProfileChatModel chat, Message message) {
     int index = _chats.indexOf(chat);
     if (index != -1) {
       _chats[index].messages?.add(message);
@@ -134,21 +53,13 @@ class MessagingViewmodel extends ChangeNotifier {
     }
   }
 
-  deleteChat(ProfileChatModel chat) {
+  void deleteChat(ProfileChatModel chat) {
     _chats.remove(chat);
     _isSelectMode = false;
     notifyListeners();
   }
 
-/*  void toggleSelectMode() {
-    if (isSelectMode) {
-      clearSelectedChats();
-    } else {
-      // Enter selection mode
-    }
-  }*/
-
-  toggleChatSelection(ProfileChatModel chat) {
+  void toggleChatSelection(ProfileChatModel chat) {
     if (_selectedChats.contains(chat)) {
       _selectedChats.remove(chat);
     } else {
@@ -163,14 +74,10 @@ class MessagingViewmodel extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool areAllChatsSelected() {
-    if (_selectedChats.isEmpty) {
-      return false;
-    }
-    return _selectedChats.length == _chats.length;
-  }
+  bool areAllChatsSelected() =>
+      _selectedChats.isNotEmpty && _selectedChats.length == _chats.length;
 
-  clearSelectedChats() {
+  void clearSelectedChats() {
     _selectedChats.clear();
     _isSelectMode = false;
     notifyListeners();

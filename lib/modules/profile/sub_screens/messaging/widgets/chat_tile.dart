@@ -106,7 +106,7 @@ class ChatTile extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        if (chat.isRead == null || !chat.isRead!)
+                        if (chat.hasRead == null || !chat.hasRead!)
                           Padding(
                             padding: EdgeInsets.only(left: 8.w),
                             child: CircleAvatar(
@@ -127,7 +127,7 @@ class ChatTile extends StatelessWidget {
                     ),
                     SizedBox(height: 16.h),
                     Text(
-                      'How to Deposit money on SiuuSport',
+                      '${chat.title}',
                       style: TextStyle(
                         color: AppColors.tertiaryBase10,
                         fontSize: 16.sp,

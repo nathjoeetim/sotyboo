@@ -22,6 +22,7 @@ class MessageDetailsViewmodel extends ChangeNotifier {
     _chat = chat;
   }
 
+
   List<Message>? get messages => _chat.messages;
   Message get currentMessage => _currentMessage;
 

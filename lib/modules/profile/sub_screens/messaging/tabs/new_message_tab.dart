@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:sportboo_mobile_client/models/messeges_model/send_message_model.dart';
+import 'package:sportboo_mobile_client/modules/messeges_model/inbox_model.dart';
+import 'package:sportboo_mobile_client/modules/messeges_model/send_message_model.dart';
 import 'package:sportboo_mobile_client/modules/profile/components/text_fields/plain_text_field.dart';
 import 'package:sportboo_mobile_client/modules/profile/components/wide_button.dart';
 import 'package:sportboo_mobile_client/modules/profile/components/wide_button_outlined.dart';
@@ -147,6 +148,7 @@ class SendButton extends StatelessWidget {
             String subject = subjectController.text; // subject of the message
             bool messageSent = await onSendNewMessage(subject, message);
             if (messageSent) {
+              getAllMessagesFn();
               // display popup success message
               showSportbooSnackBar('Message Sent', (id) => {});
               // Clear input fields after sending message
@@ -154,7 +156,7 @@ class SendButton extends StatelessWidget {
               subjectController.clear();
             } else {
               // display popup error message
-              showSportbooSnackBar('Unable to send Message! Try again', (id) => {});
+              showSportbooSnackBar('Unable to send Message!Try again', (id) => {});
             }
           },
         );
